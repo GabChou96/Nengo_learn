@@ -1,0 +1,4 @@
+.model/mnist.pkl.gz
+*.gz
+*.pkl
+
