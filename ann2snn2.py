@@ -51,7 +51,7 @@ functional_model = converter.model
 n_steps = 1  # Define the number of timesteps (can be adjusted as needed)
 
 # Ensure the batch size matches or exceeds the minibatch_size
-minibatch_size = 1
+minibatch_size = 10
 
 X_train_batches = np.repeat(X_train[:X_train.shape[0]//10*10, :].reshape(minibatch_size, -1, 2000), 20, axis=1)
 X_val_batches = np.repeat(X_val[:X_val.shape[0]//10*10, :].reshape(minibatch_size, -1, 2000), 20, axis=1)
@@ -84,6 +84,7 @@ if do_training:
         )
         # save the parameters to file
         sim.save_params("./keras_snn_trained_params")
+        print("steps_per_epoch", len(X_train) // minibatch_size)
 
 
 
